@@ -31,30 +31,30 @@
               <div class="row">
                 <div class="col">
                   <label for="fname">First name:</label>
-                  <input type="text" class="form-control" placeholder="Enter first Name" id="fname" required>
+                  <input type="text" class="form-control" placeholder="Enter first Name" id="fname" name="fname" required>
                 </div>
                 <div class="col">
                   <label for="fname">Middle name:</label>
-                  <input type="text" class="form-control" placeholder="Enter middle name" id="mname" required>
+                  <input type="text" class="form-control" placeholder="Enter middle name" id="mname" name="mname" required>
                 </div>
                 <div class="col">
                   <label for="lname">Last name:</label>
-                  <input type="text" class="form-control" placeholder="Enter last name" id="lname" required>
+                  <input type="text" class="form-control" placeholder="Enter last name" id="lname" name="lname" required>
                 </div>
               </div>
               <div class="row">
                 <div class="col-4">
                   <label for="contact">Phone Number:</label>
-                  <input type="tel" class="form-control" placeholder="Enter phone number" id="contact" required>
+                  <input type="tel" class="form-control" placeholder="Enter phone number" id="contact" name="contact" required>
                 </div>
               </div>
                 <div class="form-group col-6">
                   <label for="email">Email address:</label>
-                  <input type="email" class="form-control" placeholder="Enter email" id="email" required>
+                  <input type="email" class="form-control" placeholder="Enter email" id="email" name="email" required>
                 </div>
                 <div class="form-group col-6">
                   <label for="pwd">Password:</label>
-                  <input type="password" class="form-control" placeholder="Enter password" id="pwd" required>
+                  <input type="password" class="form-control" placeholder="Enter password" id="pwd" name="pwd" required>
                 </div>
                 <div class="form-group form-check">
                   <label class="form-check-label">
