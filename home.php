@@ -31,7 +31,7 @@
                 <a class="nav-link" href="aboutus.php">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="modal" data-bs-target="#myModal">Login</a>
+                <a class="nav-link" id="loginbtn" data-toggle="modal" data-target="#loginModal">Login</a>
               </li>
              
             </ul>
@@ -47,41 +47,42 @@
             </div>
             <div class="button">
               <a href="register.php"><button class="register-button" href="register.php">Register Now</button> </a>
-              <button class="login-button" id="loginbtn">Login</button>
+              <button class="login-button" id="loginbtn" data-toggle="modal" data-target="#loginModal">Login</button>
             </div>
             
           </div>
 
          <!-- The Modal -->
-<div class="modal" id="myModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Modal Heading</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        Modal body..
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-      </div>
-
+<div class="modal fade" id="loginModal">
+<form action="login.php" method="post">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Login</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <form action="login.php" method="post">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="text" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Password:</label>
+                        <input type="pwd" class="form-control" id="pwd" name="pwd" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+            
+        </div>
     </div>
-  </div>
 </div>
           
         </body>
-
-
-
-
-
 
 </html>
