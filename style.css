@@ -1,3 +1,14 @@
+
+.flex-center {
+      display: flex;
+      align-items: center;
+      column-gap: 5px;
+}
+
+.cursor-pointer {
+      cursor: pointer;
+}
+
 .navbar{
     background-color:steelblue;
     height: 90px;
