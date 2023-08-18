@@ -9,22 +9,18 @@ if(isset($_POST['email'])) {
 
     //transfers value of name="" from form to variable
     //$r_username = $_POST['reg_username'];
-    $email = $_POST['email'];
+    $lname = $_POST['lname'];
     $fname = $_POST['fname'];
     $mname = $_POST['mname'];
-    $lname = $_POST['lname'];
-    $pwd = $_POST['pwd'];
     $contact = $_POST['contact'];
-    $address = $_POST['address'];
-
-    //hashes value of name="password" from form then transfered to variable
-    //$r_pwdhash = password_hash($_POST['password'], PASSWORD_ARGON2ID);
-
-    $_SESSION["email"] = $email;
-    $_SESSION["pwd"] = $_POST['pwd'];
+    $email = $_POST['email'];
+    $pwd = $_POST['pwd'];
     
-    //preparing arguments for insert()
-    // check if the user already exists
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    
     $sql = "SELECT * FROM student_info WHERE email = '$email'";
     $result = mysqli_query($conn, $sql);
 
@@ -33,16 +29,14 @@ if(isset($_POST['email'])) {
         $msg="User already exists.";
     } else {
         // insert the new user record into the users table
-        $sql = "INSERT INTO student_info (fname, mname,  lname, contact, email, pwd) VALUES ('$fname', '$mname' , '$lname', '$contact', '$email', '$pwd')";
+        $sql = "INSERT INTO student_info (lname, fname, mname, contact, email, pwd) VALUES ('$lname', '$fname' ,'$mname', '$contact', '$email', '$pwd')";
         if (mysqli_query($conn, $sql)) {
             $msg="New user record inserted successfully.";
         } else {
             $msg="Error: " . $sql . "<br>" . mysqli_error($conn);
         }
     }
-    mysqli_close($conn);
-    $msg = "Registration succesful! Please log in.";
-    header("location: home.php?msg=".urlencode($msg));
+    header("location:home.php?register&msg=$msg");
     exit;
 }
 
