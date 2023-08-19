@@ -1,4 +1,9 @@
-
+<?php 
+    // UNCOMMENT MO NALANG KADING CONNECTION 
+    // require './connection.php'
+     
+    
+?>
 <!DOCTYPE html lang=en>
 <html>
     
@@ -47,7 +52,7 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="nav-title">Our Lady of the Roses Montessori Learning Center</div>
+        <!-- <div class="nav-title">Our Lady of the Roses Montessori Learning Center</div> -->
 
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
@@ -68,203 +73,166 @@
       </div>
     </nav>
 
-    <div class="container">
-        <div id="hd" style="padding-top: 9px; ">
-            <div class="column">
-        <img src="logo1.png"  style="width: 70px;">
-        <h3>Our Lady of the Roses Montessori Learning Center</h3></div>
-        <br>
-        <div>
-        <form action="" method="post">
-            <div class="row">
-                <div class="col">
-                <label class="form-label" for="lrn">Learner Reference Number (LRN)</label>
-                    <input type="number" class="form-control" placeholder="Enter LRN" name="lrn" id="lrn" style="width:50ch;" required>
+    <div class="container" style="padding-bottom: 30px">
+        <form method="POST" action="" >
+            <div class="row ">
+                <div class="row">
+                    <div class="col-sm-12 flex-row flex-wrap d-flex align-items-center justify-content-center py-4 gap-3">
+                        <img src="logo1.png"  style="width: 70px;">
+                        <h3 class="text-center">Our Lady of the Roses Montessori Learning Center</h3></div>
+                    </div>
                 </div>
+                <div class="row my-3">
+                    <div class="col-lg-12"> 
+                        <label for="formControlInput" class="form-label">Learner Reference Number</label>
+                        <input type="number" class="form-control " id="formControlInput" placeholder="" style="max-width: 500px;">
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-sm-12 col-lg-3 my-2"> 
+                        <label for="lname" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="lname" name="lname" placeholder="Enter Last Name">
+                    </div>
+                    <div class="col-sm-12 col-lg-3 my-2">
+                        <label for="fname" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter First Name">
+                    </div>
+                    <div class="col-sm-12  col-lg-3 my-2">
+                        <label for="mname" class="form-label">Middle Name</label>
+                        <input type="text" class="form-control" id="mname" name="mname" placeholder="Enter Middle Name">
+                    </div>
+                    <div class="col-sm-12  col-lg-3 my-2">
+                        <label for="exename" class="form-label">Extension Name</label>
+                        <input type="text" class="form-control" id="exename" name="exename" placeholder="eg. Jr. Sr.">
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-sm-12 col-lg-3 my-2"> 
+                        <label for="formControlInput" class="form-label">Birthday</label>
+                        <input type="date" class="form-control" id="formControlInput" name="bday">
+                    </div>
+                    <div class="col-sm-12 col-lg-3 my-2">
+                        <label for="age" class="form-label">Age</label>
+                        <input type="number" class="form-control" id="age" name="age" placeholder="Enter Age">
+                    </div>
+                    <div class="col-sm-12  col-lg-3 my-2">
+                        <label for="height" class="form-label">Height</label>
+                        <input type="number" class="form-control" id="height" name="height" placeholder="Height (in)">
+                    </div>
+                    <div class="col-sm-12  col-lg-3 my-2">
+                        <label for="weight" class="form-label">Weight</label>
+                        <input type="number" class="form-control" id="weight" name="weight" placeholder="Weight (kg)">
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-sm-12 col-lg-3 my-2"> 
+                        <label for="status" class="form-label">Civil Status</label>
+                        <select class="form-select form-control " aria-label="Large select" name="status" id="status">
+                            <option selected="" disabled>Open this select menu</option>
+                            <option value="Single">Single</option>
+                            <option value="Married">Married</option> 
+                            <option value="Seperated">Seperated</option>
+                            <option value="Divorced">Divorced</option>
+                            <option value="Widowed">Widowed</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-12 col-lg-3 my-2">
+                        <label for="nationality" class="form-label">Nationality</label>
+                        <input type="text" class="form-control" id="nationality" name="nationality" placeholder="">
+                    </div>
+                    <div class="col-sm-12  col-lg-3 my-2">
+                        <label for="placeofbirth" class="form-label">Place of Birth</label>
+                        <input type="text" class="form-control " id="placeofbirth" name="placeofbirth" placeholder="Height (in)">
+                    </div>
+                    <div class="col-sm-12  col-lg-3 my-2">
+                        <label for="sex" class="form-label">Sex</label>
+                        <select class="form-select form-control " aria-label="Large select" name="sex" id="sex" > 
+                            <option value="Male" selected>Male</option>
+                            <option value="Female">Female</option>  
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 col-lg-6 my-2"> 
+                        <label for="religion" class="form-label">Religion</label>
+                        <input type="text" class="form-control" id="religion" name="religion" placeholder="Enter Religion       ">
+                    </div>
+                    <div class="col-sm-12 col-lg-6 my-2">
+                        <label for="cnumber" class="form-label">Contact Number</label>
+                        <input type="number" class="form-control" id="cnumber" name="cnumber" placeholder="Enter Contact Number">
+                    </div>  
+                </div>
+
+                
+                <div class="row">
+                    <div class="col-sm-12 col-lg-4 my-2"> 
+                        <label for="glevel" class="form-label">Grade Level</label>
+                        <select class="form-select form-control " aria-label="Large select" name="glevel" id="glevel" > 
+                            <option value="Grade 7" selected>Grade 7</option> 
+                            <option value="Grade 8" seleed>Grade 8</option> 
+                            <option value="Grade 9" >Grade 9</option> 
+                            <option value="Grade 10" >Grade 10</option> 
+                            <option value="Grade 11" >Grade 11</option> 
+                            <option value="Grade 12" >Grade 12</option> 
+                        </select>
+                    </div>
+                    <div class="col-sm-12 col-lg-4 my-2">
+                        <label for="track" class="form-label">Track</label>
+                        <select class="form-select form-control " aria-label="Large select" name="track" id="track" onchange="handleTrackChange(event)" > 
+                            <!-- <option  disabled>Select Track</option>  -->
+                            <option value="Academic Track" selected >Academic Track</option>  
+                            <option value="TVL Track">TVL  Track</option> 
+                        </select>
+                    </div>  
+                    <div class="col-sm-12 col-lg-4 my-2">
+                        <label for="strand" class="form-label">Strand</label>
+                        <select class="form-select form-control " aria-label="Large select" name="strand" id="strand" > 
+                            <option disabled selected>Select</option> 
+                            <option class="strand" value="Grade 7" >Strand 1</option> 
+                            <option class="strand" value="Grade 8" >Strand 2</option> 
+                            <option class="strand" value="Grade 9" >Strand 3</option> 
+                            <option class="track d-none" value="Grade 10" >Track 1</option> 
+                            <option class="track d-none" value="Grade 11" >Track 2</option> 
+                            <option class="track d-none" value="Grade 12" >Track 3</option> 
+                        </select>
+                    </div>  
+                </div>
+
+
+                <div class="">
+
+                </div>
+
             </div>
-        <div class="row mt-3">
-        <div class="col">
-        <label class="form-label">Last name</label>
-            <input type="text" class="form-control" placeholder="Enter last name" id="lname" name="lname">
-    </div>
-        <div class="col">
-        <label class="form-label">First name</label>
-            <input type="text" class="form-control" placeholder="Enter first name" id="fname" name="fname" style="width:40ch">
-    </div>
-    <div class="col">
-        <label class="form-label">Middle name</label>
-            <input type="text" class="form-control" placeholder="Enter middle name" id="mname" name="mname">
-    </div>
-    <div class="col">
-        <label class="form-label">Extension name</label>
-            <input type="text" class="form-control" placeholder="eg. Jr." id="mname" name="mname" style="width:10ch;">
-    </div>
-  </div>
-  <div class="row mt-3">
-  <div class="col">
-        <label class="form-label">Birthday</label>
-            <input type="date" class="form-control" placeholder="MM/DD/YR" id="birthdate" name="birthdate" >
-    </div>
-    <div class="col">
-        <label class="form-label">Age</label>
-            <input type="number" class="form-control" placeholder="Enter age" id="age" name="age" style="width:15ch;" >
-    </div>
-    <div class="col">
-        <label class="form-label">Height</label>
-            <input type="number" class="form-control" placeholder="Enter height (in)" id="height" name="height" style="width:20ch;" >
-    </div>
-    <div class="col">
-        <label class="form-label">Weight</label>
-            <input type="number" class="form-control" placeholder="Enter weight (kg)" id="weight" name="weight" style="width:20ch;" >
-    </div>
-    <div class="col">
-        <label class="form-label">Civil Status</label>
-        <select class="form-select" id="cstatus">
-  <option>Single</option>
-  <option>Married</option>
-  <option>Seperated</option>
-  <option>Divorced</option>
-  <option>Widowed</option>
-</select>
-    </div>
-  </div>
-  <div class="row mt-3">
-  <div class="col">
-        <label class="form-label">Nationality</label>
-            <input type="text" class="form-control" placeholder="Enter nationality" id="nationality" name="nationality">
-    </div>
-    <div class="col">
-        <label class="form-label">Place of Birth</label>
-            <input type="text" class="form-control" placeholder="Enter place of birth" id="place_birth" name="place_birth">
-    </div>
-    <div class="col">
-        <label class="form-label">Sex</label>
-        <select class="form-select" id="sex" style="width:15ch;">
-            <option>Male</option>
-            <option>Female</option>
-        </select>
-    </div>
-    
-  </div>
-    <div class="row mt-3">
-    <div class="col">
-        <label class="form-label">Religion</label>
-            <input type="text" class="form-control" placeholder="Enter religion" id="religion" name="religion">
-    </div>
-    <div class="col">
-        <label class="form-label">Contact Number</label>
-            <input type="number" class="form-control" placeholder="Enter number" id="contact" name="contact">
-    </div>
-    </div>
-    <div class="row mt-3">
-    <div class="col">
-        <label class="form-label">Grade Level</label>
-        <select class="form-select" id="grlevel">
-            <option>11</option>
-            <option>12</option>
-        </select>
-    </div>
-    <div class="col">
-        <label class="form-label">Track</label>
-        <select class="form-select" id="track">
-            <option>Academic Track</option>
-            <option>Technical - Vocational Track</option>
-        </select>
-    </div>
-    <div class="col">
-        <label class="form-label">Strand</label>
-        <select id="strand">
-        <!-- This will be populated dynamically using JavaScript -->
-    </select>
-    </div>
-  </div>
-        </div>
-    </div>
-    
+        </form>
     </div>
    
-    <script>
-    const trackSelect = document.getElementById('track');
-    const strandSelect = document.getElementById('strand');
-    const provinceSelect = document.getElementById('province');
-    const municipalitySelect = document.getElementById('municipality');
-    
+    <script> 
+        const track = document.querySelectorAll('.track');
+        const strand = document.querySelectorAll('.strand');
+ 
+        function handleTrackChange(event) { 
+            if(event.target.value == "Academic Track"){
+                for(let i = 0; i < strand.length ; i++) {
+                    strand[i].classList.remove("d-none");
+                    strand[i].classList.add("d-block");
+                    track[i].classList.remove("d-block");
+                    track[i].classList.add("d-none");
+                }
+            }else{
+                for(let i = 0; i < track.length ; i++) {
+                    track[i].classList.remove("d-none");
+                    track[i].classList.add("d-block");
+                    strand[i].classList.remove("d-block");
+                    strand[i].classList.add("d-none");
+                }
+            }
+        }
 
-    const municipalities = {
-        province_a: [
-            { id: 101, name: 'Municipality 1' },
-            { id: 102, name: 'Municipality 2' }
-        ],
-        province_b: [
-            { id: 103, name: 'Municipality 3' },
-            { id: 104, name: 'Municipality 4' }
-        ]
-    };
-
-    const strands = {
-        academic: [
-            { id: 201, name: 'Strand A' },
-            { id: 202, name: 'Strand B' }
-        ],
-        techvoc: [
-            { id: 301, name: 'Tech-Voc Strand X' },
-            { id: 302, name: 'Tech-Voc Strand Y' }
-        ]
-    };
-
-    trackSelect.addEventListener('change', () => {
-        populateStrands();
-    });
-
-    provinceSelect.addEventListener('change', () => {
-        populateMunicipalities();
-    });
-
-    function populateMunicipalities() {
-        const selectedProvince = provinceSelect.value;
-        const selectedMunicipalities = municipalities[selectedProvince];
-
-        municipalitySelect.innerHTML = '';
-        municipalitySelect.appendChild(createDefaultOption());
-
-        selectedMunicipalities.forEach(municipality => {
-            const option = createOption(municipality.id, municipality.name);
-            municipalitySelect.appendChild(option);
-        });
-
-        populateStrands();
-    }
-
-    function populateStrands() {
-        const selectedTrack = trackSelect.value;
-        const selectedStrands = strands[selectedTrack];
-
-        strandSelect.innerHTML = '';
-        strandSelect.appendChild(createDefaultOption());
-
-        selectedStrands.forEach(strand => {
-            const option = createOption(strand.id, strand.name);
-            strandSelect.appendChild(option);
-        });
-    }
-
-    function createDefaultOption() {
-        const option = document.createElement('option');
-        option.value = '';
-        option.textContent = 'Select an option';
-        return option;
-    }
-
-    function createOption(value, text) {
-        const option = document.createElement('option');
-        option.value = value;
-        option.textContent = text;
-        return option;
-    }
-
-    // Initial population based on the default selected province
-    populateMunicipalities();
-</script>
+    </script>
     
     <script src="./plugins/bootstrap.bundle.min.js"></script>
     <script src="./plugins/bootstrap.min.js"></script>

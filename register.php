@@ -26,7 +26,7 @@
           <h3> Create an Account</h3>
             <form action="reg_process.php" method="post">
             <?php if(isset($_GET['msg'])){ ?>
- <div class="alert-warning alert"><?php echo $_GET['msg'];?></div>
+    <div class="alert-warning alert"><?php echo $_GET['msg'];?></div>
      <?php }?>
               <div class="row">
                 <div class="col">
@@ -66,29 +66,27 @@
         </div>
 
         <script src="js/bootstrap.js"></script>
-  <script>
-  function myFunction() {
-      var x = document.getElementById("pwd");
-      if (x.type === "password") {
-        x.type = "text";
-      } else {
-        x.type = "password";
-      }
-    }
-    </script> 
-    <script>
-  function togglePasswordVisibility() {
-    const passwordInput = document.getElementById("pwd");
-    const checkbox = document.getElementById("cb");
+        <script>
+        function myFunction() {
+            var x = document.getElementById("pwd");
+            if (x.type === "password") {
+              x.type = "text";
+            } else {
+              x.type = "password";
+            }
+          }
+          </script> 
+          <script>
+        function togglePasswordVisibility() {
+          const passwordInput = document.getElementById("pwd");
+          const checkbox = document.getElementById("cb");
 
-    if (checkbox.checked) {
-      passwordInput.type = "text";
-    } else {
-      passwordInput.type = "pwd";
-    }
-  }
-</script>
-
-
+          if (checkbox.checked) {
+            passwordInput.type = "text";
+          } else {
+            passwordInput.type = "pwd";
+          }
+        }
+      </script> 
     </body>
 </html>
