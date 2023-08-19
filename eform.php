@@ -155,19 +155,27 @@
         <label class="form-label">Contact Number</label>
             <input type="number" class="form-control" placeholder="Enter number" id="contact" name="contact">
     </div>
+    </div>
+    <div class="row mt-3">
     <div class="col">
         <label class="form-label">Grade Level</label>
-        <select class="form-select" id="grlevel" style="width:20ch;">
+        <select class="form-select" id="grlevel">
             <option>11</option>
             <option>12</option>
         </select>
     </div>
-    </div>
-    <div class="row mt-3">
     <div class="col">
-        <label class="form-label">Contact Number</label>
-            <input type="number" class="form-control" placeholder="Enter number" id="contact" name="contact">
+        <label class="form-label">Track</label>
+        <select class="form-select" id="track">
+            <option>Academic Track</option>
+            <option>Technical - Vocational Track</option>
+        </select>
     </div>
+    <div class="col">
+        <label class="form-label">Strand</label>
+        <select id="strand">
+        <!-- This will be populated dynamically using JavaScript -->
+    </select>
     </div>
   </div>
         </div>
@@ -175,7 +183,88 @@
     
     </div>
    
+    <script>
+    const trackSelect = document.getElementById('track');
+    const strandSelect = document.getElementById('strand');
+    const provinceSelect = document.getElementById('province');
+    const municipalitySelect = document.getElementById('municipality');
+    
 
+    const municipalities = {
+        province_a: [
+            { id: 101, name: 'Municipality 1' },
+            { id: 102, name: 'Municipality 2' }
+        ],
+        province_b: [
+            { id: 103, name: 'Municipality 3' },
+            { id: 104, name: 'Municipality 4' }
+        ]
+    };
+
+    const strands = {
+        academic: [
+            { id: 201, name: 'Strand A' },
+            { id: 202, name: 'Strand B' }
+        ],
+        techvoc: [
+            { id: 301, name: 'Tech-Voc Strand X' },
+            { id: 302, name: 'Tech-Voc Strand Y' }
+        ]
+    };
+
+    trackSelect.addEventListener('change', () => {
+        populateStrands();
+    });
+
+    provinceSelect.addEventListener('change', () => {
+        populateMunicipalities();
+    });
+
+    function populateMunicipalities() {
+        const selectedProvince = provinceSelect.value;
+        const selectedMunicipalities = municipalities[selectedProvince];
+
+        municipalitySelect.innerHTML = '';
+        municipalitySelect.appendChild(createDefaultOption());
+
+        selectedMunicipalities.forEach(municipality => {
+            const option = createOption(municipality.id, municipality.name);
+            municipalitySelect.appendChild(option);
+        });
+
+        populateStrands();
+    }
+
+    function populateStrands() {
+        const selectedTrack = trackSelect.value;
+        const selectedStrands = strands[selectedTrack];
+
+        strandSelect.innerHTML = '';
+        strandSelect.appendChild(createDefaultOption());
+
+        selectedStrands.forEach(strand => {
+            const option = createOption(strand.id, strand.name);
+            strandSelect.appendChild(option);
+        });
+    }
+
+    function createDefaultOption() {
+        const option = document.createElement('option');
+        option.value = '';
+        option.textContent = 'Select an option';
+        return option;
+    }
+
+    function createOption(value, text) {
+        const option = document.createElement('option');
+        option.value = value;
+        option.textContent = text;
+        return option;
+    }
+
+    // Initial population based on the default selected province
+    populateMunicipalities();
+</script>
     
     <script src="./plugins/bootstrap.bundle.min.js"></script>
     <script src="./plugins/bootstrap.min.js"></script>
