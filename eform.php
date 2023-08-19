@@ -158,6 +158,35 @@
     </div>
     <div class="row mt-3">
     <div class="col">
+        <label class="form-label">Province</label>
+        <select class="form-select" id="province">
+            <option>Albay</option>
+            <option>Camarines Sur</option>
+        </select>
+    </div>
+    <div class="col">
+        <label class="form-label">Municipality</label>
+        <select class="form-select" id="municipality">
+            <option>Oas</option>
+            <option>Ligao</option>
+            <option>Polangui</option>
+            <option>Libon</option>
+            <option>Pioduran</option>
+            <option>Guinobatan</option>
+        </select>
+    </div>
+    <div class="col">
+        <label class="form-label">Barangay</label>
+        <select class="form-select" id="barangay">
+        //dakulon su barangay
+    
+        </select>
+    </div>
+    </div>
+    <br>
+    <hr>
+    <div class="row mt-3">
+    <div class="col">
         <label class="form-label">Grade Level</label>
         <select class="form-select" id="grlevel">
             <option>11</option>
@@ -173,11 +202,16 @@
     </div>
     <div class="col">
         <label class="form-label">Strand</label>
-        <select id="strand">
-        <!-- This will be populated dynamically using JavaScript -->
+        <select class="form-select" id="strand">
+        <option>Automative Servicing</option>
+        <option>Electrical Installation and Maintenance</option>
+        <option>Computer System Servicing </option>
+        <option>General Academic Strand (GAS)</option>
+        <option>Humanities and Social Sciences (HUMMS)</option>
     </select>
     </div>
   </div>
+
         </div>
     </div>
     
