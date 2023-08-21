@@ -1,8 +1,11 @@
 <?php
-
-session_start();
 include_once "connection.php";
 
+session_start();
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+
+    // Retrieve form values
     $lrn = $_POST['lrn'];
     $lname = $_POST['lname'];
     $fname = $_POST['fname'];
@@ -25,46 +28,28 @@ include_once "connection.php";
     $grlevel = $_POST['grlevel'];
     $track = $_POST['track'];
     $strand = $_POST['strand'];
-    $user_id = $_SESSION['user_id'];
 
+    // Check database connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
+    // Prepare and execute the SQL query
+    $sql = "INSERT INTO student_info (user_id, lrn, lname, fname, mname, extension, birthdate, age, height, weight, cstatus, nationality, place_birth, sex, religion, contact, province, municipality, brgy, purok, grlevel, track, strand) VALUES ('$user_id', '$lrn', '$lname', '$fname', '$mname', '$extension', '$birthdate', '$age', '$height', '$weight', '$cstatus', '$nationality', '$place_birth', '$sex', '$religion', '$contact', '$province', '$municipality', '$brgy', '$purok', '$grlevel', '$track', '$strand')";
 
-       // $sql = "INSERT INTO student_info (lrn, lname, fname,mname, extension, birthdate, age, height, weight, cstatus, nationality, place_birth, sex, religion, contact, province, municipality, brgy, purok, grlevel, track, strand, user_id) VALUES ('$user_id','$lrn', '$lname', '$fname', '$mname', '$extension', '$birthdate', '$age', '$height', '$weight', '$cstatus', '$nationality', '$place_birth', '$sex', '$religion', '$contact', '$province', '$municipality', '$brgy', '$purok', '$grlevel', '$track', '$strand', '$user_id')";
-        
-    
-       /* if ($conn->query($sql) === TRUE) {
-            $msg = "Student information added successfully!";
-        } else {
-            $msg = "Error: " . $sql . "<br>" . $conn->error;
-        }*/
+    //$stmt = $conn->prepare($sql);
+    //$stmt->bind_param("iissssssiisssssisssssss", $user_id, $lrn, $lname, $fname, $mname, $extension, $birthdate, $age, $height, $weight, $cstatus, $nationality, $place_birth, $sex, $religion, $contact, $province, $municipality, $brgy, $purok, $grlevel, $track, $strand);
 
-        // ... (other code)
+    if ($conn->query($sql) === TRUE) {
+        $msg = "Student information added successfully!";
+    } else {
+        $msg = "Error: " . $stmt->error;
+    }
 
-$sql = "INSERT INTO student_info (lrn, lname, fname, mname, extension, birthdate, age, height, weight, cstatus, nationality, place_birth, sex, religion, contact, province, municipality, brgy, purok, grlevel,'track','strand', user_id) VALUES ('$lrn', '$lname', '$fname', '$mname', '$extension', '$birthdate', '$age', '$height', '$weight', $cstatus, '$nationality', '$place_birth', '$sex', '$religion', '$contact', '$province', '$municipality', '$brgy', '$purok', '$grlevel', '$track', '$strand', '$user_id')";
+    //$stmt->close();
+    $conn->close();
 
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("issssssiisssssisssssssi", $lrn, $lname, $fname, $mname, $extension, $birthdate, $age, $height, $weight, $cstatus, $nationality, $place_birth, $sex, $religion, $contact, $province, $municipality, $brgy, $purok, $grlevel, $track, $strand,  $user_id);
-
-if ($stmt->execute()) {
-    $msg = "Student information added successfully!";
-} else {
-    $msg = "Error: " . $stmt->error;
-}
-
-echo "SQL Query: $sql";
-$stmt->close();
-
-// ... (other code)
-
-        
-        $conn->close();
-    
     header("location:home.php?register&msg=$msg");
     exit;
-
-
-
+}
 ?>
