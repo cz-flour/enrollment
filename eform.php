@@ -1,4 +1,9 @@
-
+<?php 
+    // UNCOMMENT MO NALANG KADING CONNECTION 
+    // require './connection.php'
+     
+    
+?>
 <!DOCTYPE html lang=en>
 <html>
     
@@ -37,6 +42,10 @@
             appearance: none;
             margin: 0;
         }
+        #next{
+            border-radius: 1px;
+            font-size: 15px;
+        }
             
           </style>
   <body >
@@ -47,7 +56,7 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="nav-title">Our Lady of the Roses Montessori Learning Center</div>
+        <!-- <div class="nav-title">Our Lady of the Roses Montessori Learning Center</div> -->
 
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
@@ -68,236 +77,251 @@
       </div>
     </nav>
 
-    <div class="container">
-        <div id="hd" style="padding-top: 9px; ">
-            <div class="column">
-        <img src="logo1.png"  style="width: 70px;">
-        <h3>Our Lady of the Roses Montessori Learning Center</h3></div>
-        <br>
-        <div>
-        <form action="" method="post">
-            <div class="row">
-                <div class="col">
-                <label class="form-label" for="lrn">Learner Reference Number (LRN)</label>
-                    <input type="number" class="form-control" placeholder="Enter LRN" name="lrn" id="lrn" style="width:50ch;" required>
+    <div class="container" style="padding-bottom: 30px">
+        <form method="POST" action="eform_process.php" >
+            <div class="row ">
+                <div class="row">
+                    <div class="col-sm-12 flex-row flex-wrap d-flex align-items-center justify-content-center py-4 gap-3">
+                        <img src="logo1.png"  style="width: 70px;">
+                        <h3 class="text-center">Our Lady of the Roses Montessori Learning Center</h3></div>
+                    </div>
                 </div>
-            </div>
-        <div class="row mt-3">
-        <div class="col">
-        <label class="form-label">Last name</label>
-            <input type="text" class="form-control" placeholder="Enter last name" id="lname" name="lname">
-    </div>
-        <div class="col">
-        <label class="form-label">First name</label>
-            <input type="text" class="form-control" placeholder="Enter first name" id="fname" name="fname" style="width:40ch">
-    </div>
-    <div class="col">
-        <label class="form-label">Middle name</label>
-            <input type="text" class="form-control" placeholder="Enter middle name" id="mname" name="mname">
-    </div>
-    <div class="col">
-        <label class="form-label">Extension name</label>
-            <input type="text" class="form-control" placeholder="eg. Jr." id="mname" name="mname" style="width:10ch;">
-    </div>
-  </div>
-  <div class="row mt-3">
-  <div class="col">
-        <label class="form-label">Birthday</label>
-            <input type="date" class="form-control" placeholder="MM/DD/YR" id="birthdate" name="birthdate" >
-    </div>
-    <div class="col">
-        <label class="form-label">Age</label>
-            <input type="number" class="form-control" placeholder="Enter age" id="age" name="age" style="width:15ch;" >
-    </div>
-    <div class="col">
-        <label class="form-label">Height</label>
-            <input type="number" class="form-control" placeholder="Enter height (in)" id="height" name="height" style="width:20ch;" >
-    </div>
-    <div class="col">
-        <label class="form-label">Weight</label>
-            <input type="number" class="form-control" placeholder="Enter weight (kg)" id="weight" name="weight" style="width:20ch;" >
-    </div>
-    <div class="col">
-        <label class="form-label">Civil Status</label>
-        <select class="form-select" id="cstatus">
-  <option>Single</option>
-  <option>Married</option>
-  <option>Seperated</option>
-  <option>Divorced</option>
-  <option>Widowed</option>
-</select>
-    </div>
-  </div>
-  <div class="row mt-3">
-  <div class="col">
-        <label class="form-label">Nationality</label>
-            <input type="text" class="form-control" placeholder="Enter nationality" id="nationality" name="nationality">
-    </div>
-    <div class="col">
-        <label class="form-label">Place of Birth</label>
-            <input type="text" class="form-control" placeholder="Enter place of birth" id="place_birth" name="place_birth">
-    </div>
-    <div class="col">
-        <label class="form-label">Sex</label>
-        <select class="form-select" id="sex" style="width:15ch;">
-            <option>Male</option>
-            <option>Female</option>
-        </select>
-    </div>
-    
-  </div>
-    <div class="row mt-3">
-    <div class="col">
-        <label class="form-label">Religion</label>
-            <input type="text" class="form-control" placeholder="Enter religion" id="religion" name="religion">
-    </div>
-    <div class="col">
-        <label class="form-label">Contact Number</label>
-            <input type="number" class="form-control" placeholder="Enter number" id="contact" name="contact">
-    </div>
-    </div>
-    <div class="row mt-3">
-    <div class="col">
-        <label class="form-label">Province</label>
-        <select class="form-select" id="province">
-            <option>Albay</option>
-            <option>Camarines Sur</option>
-        </select>
-    </div>
-    <div class="col">
-        <label class="form-label">Municipality</label>
-        <select class="form-select" id="municipality">
-            <option>Oas</option>
-            <option>Ligao</option>
-            <option>Polangui</option>
-            <option>Libon</option>
-            <option>Pioduran</option>
-            <option>Guinobatan</option>
-        </select>
-    </div>
-    <div class="col">
-        <label class="form-label">Barangay</label>
-        <select class="form-select" id="barangay">
-        //dakulon su barangay
-    
-        </select>
-    </div>
-    </div>
-    <br>
-    <hr>
-    <div class="row mt-3">
-    <div class="col">
-        <label class="form-label">Grade Level</label>
-        <select class="form-select" id="grlevel">
-            <option>11</option>
-            <option>12</option>
-        </select>
-    </div>
-    <div class="col">
-        <label class="form-label">Track</label>
-        <select class="form-select" id="track">
-            <option>Academic Track</option>
-            <option>Technical - Vocational Track</option>
-        </select>
-    </div>
-    <div class="col">
-        <label class="form-label">Strand</label>
-        <select class="form-select" id="strand">
-        <option>Automative Servicing</option>
-        <option>Electrical Installation and Maintenance</option>
-        <option>Computer System Servicing </option>
-        <option>General Academic Strand (GAS)</option>
-        <option>Humanities and Social Sciences (HUMMS)</option>
-    </select>
-    </div>
-  </div>
+                <div class="row my-3">
+                    <div class="col-lg-12"> 
+                        <label for="formControlInput" class="form-label">Learner Reference Number</label>
+                        <input type="number" class="form-control" name="lrn" id="lrn" placeholder="Enter LRN" style="max-width: 500px;">
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-sm-12 col-lg-3 my-2"> 
+                        <label for="lname" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="lname" name="lname" placeholder="Enter Last Name">
+                    </div>
+                    <div class="col-sm-12 col-lg-3 my-2">
+                        <label for="fname" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter First Name">
+                    </div>
+                    <div class="col-sm-12  col-lg-3 my-2">
+                        <label for="mname" class="form-label">Middle Name</label>
+                        <input type="text" class="form-control" id="mname" name="mname" placeholder="Enter Middle Name">
+                    </div>
+                    <div class="col-sm-12  col-lg-3 my-2">
+                        <label for="exename" class="form-label">Extension Name</label>
+                        <input type="text" class="form-control" id="extension" name="extension" placeholder="eg. Jr. Sr.">
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-sm-12 col-lg-3 my-2"> 
+                        <label for="formControlInput" class="form-label">Birthday</label>
+                        <input type="date" class="form-control" id="formControlInput" name="birthdate">
+                    </div>
+                    <div class="col-sm-12 col-lg-3 my-2">
+                        <label for="age" class="form-label">Age</label>
+                        <input type="number" class="form-control" id="age" name="age" placeholder="Enter Age">
+                    </div>
+                    <div class="col-sm-12  col-lg-3 my-2">
+                        <label for="height" class="form-label">Height</label>
+                        <input type="number" class="form-control" id="height" name="height" placeholder="Enter height (in)">
+                    </div>
+                    <div class="col-sm-12  col-lg-3 my-2">
+                        <label for="weight" class="form-label">Weight</label>
+                        <input type="number" class="form-control" id="weight" name="weight" placeholder="Enter weight (kg)">
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-sm-12 col-lg-3 my-2"> 
+                        <label for="status" class="form-label">Civil Status</label>
+                        <select class="form-select form-control " aria-label="Large select" name="cstatus" id="cstatus">
+                            <option selected="" disabled>Select status</option>
+                            <option value="Single">Single</option>
+                            <option value="Married">Married</option> 
+                            <option value="Seperated">Seperated</option>
+                            <option value="Divorced">Divorced</option>
+                            <option value="Widowed">Widowed</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-12 col-lg-3 my-2">
+                        <label for="nationality" class="form-label">Nationality</label>
+                        <input type="text" class="form-control" id="nationality" name="nationality" placeholder="Enter Nationality">
+                    </div>
+                    <div class="col-sm-12  col-lg-3 my-2">
+                        <label for="placeofbirth" class="form-label">Place of Birth</label>
+                        <input type="text" class="form-control " id="place_birth" name="place_birth" placeholder="Enter place of birth">
+                    </div>
+                    <div class="col-sm-12  col-lg-3 my-2">
+                        <label for="sex" class="form-label">Sex</label>
+                        <select class="form-select form-control " aria-label="Large select" name="sex" id="sex" > 
+                            <option value="Male" selected>Male</option>
+                            <option value="Female">Female</option>  
+                        </select>
+                    </div>
+                </div>
 
-        </div>
-    </div>
-    
+                <div class="row">
+                    <div class="col-sm-12 col-lg-6 my-2"> 
+                        <label for="religion" class="form-label">Religion</label>
+                        <input type="text" class="form-control" id="religion" name="religion" placeholder="Enter Religion       ">
+                    </div>
+                    <div class="col-sm-12 col-lg-6 my-2">
+                        <label for="cnumber" class="form-label">Contact Number</label>
+                        <input type="number" class="form-control" id="contact" name="contact" placeholder="Enter Contact Number">
+                    </div>  
+                </div>
+                <div class="row">
+                <div class="col-sm-12 col-lg-4 my-2"> 
+                        <label for="province" class="form-label">Province</label>
+                        <select class="form-select form-control " aria-label="Large select" name="province" id="province" onchange="handleProvinceChange(event)">
+                            <option disabled selected>Select</option>  
+                            <option value="Albay" >Albay</option> 
+                            <option value="Camarines Sur" >Camarines Sur</option> 
+                        </select>
+                    </div>
+                    <div class="col-sm-12 col-lg-4 my-2"> 
+                        <label for="municipality" class="form-label">Municipality</label>
+                        <select class="form-select form-control " aria-label="Large select" name="municipality" id="municipality" onchange="handleMunicipalityChange(event)">
+                            <option disabled selected>Select Municipality</option>  
+                            <option value="Oas" >Oas</option> 
+                            <option value="Ligao" >Ligao</option> 
+                            <option value="Polangui">Polangui</option>
+                            <option value="Guinobatan">Guinobatan</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-12 col-lg-4 my-2"> 
+                        <label for="brgy" class="form-label">Barangay</label>
+                        <select class="form-select form-control " aria-label="Large select" name="brgy" id="brgy">
+                            <option disabled selected>Select</option>  
+                            <option value="Bagumbayan" class="oas">Bagumbayan</option> 
+                            <option value="Bongoran" class="oas">Bongoran</option> 
+                            <option value="Calzada" class="oas">Calzada</option> 
+                            <option value="Centro Poblacion" class="oas">Centro Poblacion</option> 
+                            <option value="Ilaor Norte" class="oas">Ilaor Norte</option>
+                            <option value="Ilaor Sur" class="oas">Ilaor Sur</option>
+                            <option value="Iraya Norte" class="oas">Iraya Norte</option>
+                            <option value="Iraya Sur" class="oas">Iraya Sur</option>
+                            <option value="Maporong" class="oas">Maporong</option>
+                            <option value="Obaliw" class="oas">Obaliw</option>
+                            <option value="Rizal" class="oas">Rizal</option> 
+                            <option value="San Juan" class="oas">San Juan</option>
+                            <option value="Talongog" class="oas">Talongog</option>
+                            <option value="Bagumbayan" class="ligao">Bagumbayan</option>
+                            <option value="Binatagan" class="ligao">Binatagan</option>
+                            <option value="Guilid" class="ligao">Guilid</option>
+                            <option value="Tinago" class="ligao">Tinago</option>
+                            <option value="Tomolin" class="ligao">Tomolin</option>
+                            <option value="Sta. Cruz" class="ligao">Sta. Cruz</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-12  col-lg-3 my-2">
+                        <label for="purok" class="form-label">Purok</label>
+                        <input type="varchar" class="form-control " id="purok" name="purok">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-lg-4 my-2"> 
+                        <label for="glevel" class="form-label">Grade Level</label>
+                        <select class="form-select form-control " aria-label="Large select" name="grlevel" id="grlevel">
+                            <option disabled selected>Select</option>  
+                            <option value="Grade 11" >Grade 11</option> 
+                            <option value="Grade 12" >Grade 12</option> 
+                        </select>
+                    </div>
+                    <div class="col-sm-12 col-lg-4 my-2">
+                        <label for="track" class="form-label">Track</label>
+                        <select class="form-select form-control " aria-label="Large select" name="track" id="track" onchange="handleTrackChange(event)" > 
+                            <!-- <option  disabled>Select Track</option>  -->
+                            <option disabled selected>Select</option> 
+                            <option value="Academic Track">Academic Track</option>  
+                            <option value="Tech-Voc Track">Tech-Voc Track</option> 
+                        </select>
+                    </div>  
+                    <div class="col-sm-12 col-lg-4 my-2">
+                        <label for="strand" class="form-label">Strand</label>
+                        <select class="form-select form-control " aria-label="Large select" name="strand" id="strand" > 
+                            <option disabled selected>Select</option> 
+                            <option class="strand" value="General Academic Strand (GAS)" >General Academic Strand (GAS)</option> 
+                            <option class="strand" value="Humanities and Social Sciences (HUMMS)">Humanities and Social Sciences (HUMMS)</option>  
+                            <option class="track d-none" value="Automotive Servicing" >Automotive Servicing</option> 
+                            <option class="track d-none" value="Electrical Installation and Maintenance">Electrical Installation and Maintenance</option> 
+                            <option class="track d-none" value="Computer System Servicing">Computer System Servicing</option> 
+                        </select>
+                    </div>  
+                </div>
+                <button type="submit "class="btn" id="next"> Next </button>
+            </div>
+        </form>
     </div>
    
-    <script>
-    const trackSelect = document.getElementById('track');
-    const strandSelect = document.getElementById('strand');
-    const provinceSelect = document.getElementById('province');
-    const municipalitySelect = document.getElementById('municipality');
-    
+    <script> 
+        const track = document.querySelectorAll('.track');
+        const strand = document.querySelectorAll('.strand');
+ 
+        function handleTrackChange(event) { 
+            if(event.target.value == "Academic Track"){
+                for(let i = 0; i < strand.length ; i++) {
+                    strand[i].classList.remove("d-none");
+                    strand[i].classList.add("d-block");
+                    track[i].classList.remove("d-block");
+                    track[i].classList.add("d-none");
+                }
+            }else{
+                for(let i = 0; i < track.length ; i++) {
+                    track[i].classList.remove("d-none");
+                    track[i].classList.add("d-block");
+                    strand[i].classList.remove("d-block");
+                    strand[i].classList.add("d-none");
+                }
+            }
+        }
 
-    const municipalities = {
-        province_a: [
-            { id: 101, name: 'Municipality 1' },
-            { id: 102, name: 'Municipality 2' }
-        ],
-        province_b: [
-            { id: 103, name: 'Municipality 3' },
-            { id: 104, name: 'Municipality 4' }
-        ]
-    };
+    </script>
 
-    const strands = {
-        academic: [
-            { id: 201, name: 'Strand A' },
-            { id: 202, name: 'Strand B' }
-        ],
-        techvoc: [
-            { id: 301, name: 'Tech-Voc Strand X' },
-            { id: 302, name: 'Tech-Voc Strand Y' }
-        ]
-    };
+<script>
+    const oas = document.querySelectorAll('.oas');
+    const ligao = document.querySelectorAll('.ligao');
+    const barangay = document.querySelectorAll('.barangay');
 
-    trackSelect.addEventListener('change', () => {
-        populateStrands();
-    });
 
-    provinceSelect.addEventListener('change', () => {
-        populateMunicipalities();
-    });
-
-    function populateMunicipalities() {
-        const selectedProvince = provinceSelect.value;
-        const selectedMunicipalities = municipalities[selectedProvince];
-
-        municipalitySelect.innerHTML = '';
-        municipalitySelect.appendChild(createDefaultOption());
-
-        selectedMunicipalities.forEach(municipality => {
-            const option = createOption(municipality.id, municipality.name);
-            municipalitySelect.appendChild(option);
-        });
-
-        populateStrands();
+    function handleProvinceChange(event) {
+        if(event.target.value == Albay){
+            for(let i = 0; i<strand.length ; i++){
+                    oas[i].classList.remove("d-none");
+                    oas[i].classList.add("d-block");
+                    oas[i].classList.remove("d-block");
+                    oas[i].classList.add("d-none");
+            }
+            elseif();{
+                for(let i=0; i<ligao.length; i++){
+                    ligao[i].classList.remove("d-none");
+                    ligao[i].classList.add("d-block");
+                    ligao[i].classList.remove("d-block");
+                    ligao[i].classList.add("d-none");
+                }
+            }
+        }
     }
 
-    function populateStrands() {
-        const selectedTrack = trackSelect.value;
-        const selectedStrands = strands[selectedTrack];
-
-        strandSelect.innerHTML = '';
-        strandSelect.appendChild(createDefaultOption());
-
-        selectedStrands.forEach(strand => {
-            const option = createOption(strand.id, strand.name);
-            strandSelect.appendChild(option);
-        });
+    function handleMunicipalityChange(event) {
+    if (event.target.value === "oas") {
+        for (let i = 0; i < oas.length; i++) {
+            oas[i].classList.remove("d-none");
+            oas[i].classList.add("d-block");
+            ligao[i].classList.remove("d-block");
+            ligao[i].classList.add("d-none");
+        }
+    } else if (event.target.value === "ligao") {
+        for (let i = 0; i < ligao.length; i++) {
+            ligao[i].classList.remove("d-none");
+            ligao[i].classList.add("d-block");
+            oas[i].classList.remove("d-block");
+            oas[i].classList.add("d-none");
+        }
     }
+}
 
-    function createDefaultOption() {
-        const option = document.createElement('option');
-        option.value = '';
-        option.textContent = 'Select an option';
-        return option;
-    }
 
-    function createOption(value, text) {
-        const option = document.createElement('option');
-        option.value = value;
-        option.textContent = text;
-        return option;
-    }
-
-    // Initial population based on the default selected province
-    populateMunicipalities();
+   
 </script>
     
     <script src="./plugins/bootstrap.bundle.min.js"></script>
