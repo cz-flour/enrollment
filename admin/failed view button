@@ -1,0 +1,6 @@
+if ($result->num_rows > 0) {
+// output data of each row
+while($row = $result->fetch_assoc()) {
+    $address = "Purok" .$row["purok"] . ", " . $row["brgy"] . ", " . $row["municipality"].",".$row["province"];
+echo "<tr><td>" . $row["lrn"]. "</td><td>" . $row["lname"] . "</td><td>" . $row["fname"]. "</td><td>" . $row["mname"]. "</td><td>" . $row["extension"]. "</td><td>" . $row["birthdate"]. "</td><td>" . $row["age"]. "</td><td>" . $row["height"]. "</td><td>" . $row["weight"]. "</td><td>" . $row["cstatus"]. "</td><td>" . $row["nationality"]. "</td><td>" . $row["place_birth"]. "</td><td>" . $row["sex"]. "</td><td>" .$row["religion"]. "</td><td>" .$row["contact"]. "</td><td>" .$address. "</td><td>" .$row["grlevel"]. "</td><td>" .$row["track"]. "</td><td>" .$row["strand"]. "</td><td><button class='btn btn-link' data-bs-toggle='modal' data-bs-target='#viewdocumentsModal'>View Documents</button></td><td>" .$row["fullname"]. "</td><td>" . $row["caddress"]. "</td><td>" . $row["rel"]. "</td><td>" . $row["cpnum"]. "</td><td>" . $row["schname"]. "</td><td>" . $row["schaddress"]. "</td><td>" . $row["yrcomp"]. "</td><td>" . $row["schnamej"]. "</td><td>" . $row["schaddressj"]. "</td><td>" . $row["yrcompj"]. "</td><td>";	
+}
