@@ -19,27 +19,30 @@
 
 <head>
 <?php
-            session_start();
-            include_once "connection.php";
-            include "./sidebar.php";
-           
-            //include_once "./config/dbconnect.php";
-        ?>
- 
-
+    // session_start();/* 
+    // include_once "connection.php";
+    
+    
+    //include_once "./config/dbconnect.php";
+?> 
 </head>
-
-
+ 
 <body>
-<div id="main-content" class="container allContent-section py-4">
+    <div   class="container allContent-section py-4">
         <div class="row">
             <div class="col-sm-3">
-                <div class="card" style="margin: left 20px;">
+
+                <!-- SIDEBAR -->
+                <?php include "./sidebar.php";  ?>
+                
+
+                <!-- MAIN CONTENT -->
+                <div id="content" class="card">
                     <i class="fa fa-users  mb-2" style="font-size: 70px;"></i>
                     <h4 style="color:white;">Total Users</h4>
                     <h5 style="color:white;">
                     <?php
-                        $sql="SELECT * from user where is_admin=0";
+                       /*  $sql="SELECT * from user where is_admin=0";
                         $result=$conn-> query($sql);
                         $count=0;
                         if ($result-> num_rows > 0){
@@ -48,17 +51,16 @@
                                 $count=$count+1;
                             }
                         }
-                        echo $count;
-                    ?></h5>
+                        echo $count; */
+                    ?>
+                    </h5>
                 </div>
             </div>
-</body>
-
-
+        </div>
+    </div>
 </div>
 
 
-
-
-
+<script src="./index.js"></script>
+</body>
 </html>
