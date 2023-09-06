@@ -132,7 +132,10 @@ if ($result->num_rows > 0) {
 // output data of each row
 while($row = $result->fetch_assoc()) {
     $address = "Purok" .$row["purok"] . ", " . $row["brgy"] . ", " . $row["municipality"].",".$row["province"];
-echo "<tr><td>" . $row["lrn"]. "</td><td>" . $row["lname"] . "</td><td>" . $row["fname"]. "</td><td>" . $row["mname"]. "</td><td>" . $row["extension"]. "</td><td>" . $row["birthdate"]. "</td><td>" . $row["age"]. "</td><td>" . $row["height"]. "</td><td>" . $row["weight"]. "</td><td>" . $row["cstatus"]. "</td><td>" . $row["nationality"]. "</td><td>" . $row["place_birth"]. "</td><td>" . $row["sex"]. "</td><td>" .$row["religion"]. "</td><td>" .$row["contact"]. "</td><td>" .$address. "</td><td>" .$row["grlevel"]. "</td><td>" .$row["track"]. "</td><td>" .$row["strand"]. "</td><td>" .$row["psa"]. "</td><td>" .$row["formcard"]. "</td><td>" .$row["pics"]. "</td><td>" .$row["complform"]. "</td><td>" .$row["fullname"]. "</td><td>" . $row["caddress"]. "</td><td>" . $row["rel"]. "</td><td>" . $row["cpnum"]. "</td><td>" . $row["schname"]. "</td><td>" . $row["schaddress"]. "</td><td>" . $row["yrcomp"]. "</td><td>" . $row["schnamej"]. "</td><td>" . $row["schaddressj"]. "</td><td>" . $row["yrcompj"]. "</td><td>".$row["date"]. "</td><td> <button id='statusButton' class='status-button'>Pending</button></td>" ;	
+    $student_id = $row["student_id"]; // Assuming this is the student's unique identifier in the database
+$statusId = "statusButton_" . $student_id;
+
+echo "<tr><td>" . $row["lrn"]. "</td><td>" . $row["lname"] . "</td><td>" . $row["fname"]. "</td><td>" . $row["mname"]. "</td><td>" . $row["extension"]. "</td><td>" . $row["birthdate"]. "</td><td>" . $row["age"]. "</td><td>" . $row["height"]. "</td><td>" . $row["weight"]. "</td><td>" . $row["cstatus"]. "</td><td>" . $row["nationality"]. "</td><td>" . $row["place_birth"]. "</td><td>" . $row["sex"]. "</td><td>" .$row["religion"]. "</td><td>" .$row["contact"]. "</td><td>" .$address. "</td><td>" .$row["grlevel"]. "</td><td>" .$row["track"]. "</td><td>" .$row["strand"]. "</td><td>" .$row["psa"]. "</td><td>" .$row["formcard"]. "</td><td>" .$row["pics"]. "</td><td>" .$row["complform"]. "</td><td>" .$row["fullname"]. "</td><td>" . $row["caddress"]. "</td><td>" . $row["rel"]. "</td><td>" . $row["cpnum"]. "</td><td>" . $row["schname"]. "</td><td>" . $row["schaddress"]. "</td><td>" . $row["yrcomp"]. "</td><td>" . $row["schnamej"]. "</td><td>" . $row["schaddressj"]. "</td><td>" . $row["yrcompj"]. "</td><td>".$row["date"]. "</td><td> <button id='" . $statusId . "' class='status-button'>Pending</button></td>";	
 
 }
 
@@ -150,31 +153,33 @@ else { echo "0 results"; }
 </div>
 
 <script>
-    const statusButtons = document.querySelectorAll(".status-button");
+  // Select all buttons with class 'status-button'
+const statusButtons = document.querySelectorAll(".status-button");
 
-    statusButtons.forEach(button => {
-        const studentId = button.getAttribute("data-student-id");
-        const status = <?php echo $row["status"]; ?>; // Replace with actual value from PHP
+statusButtons.forEach(button => {
+    const studentId = button.getAttribute("id").split("_")[1]; // Extract student ID
 
-        if (status === 0) {
-            button.textContent = "Pending";
-        } else if (status === 1) {
+    // Check if the button was previously approved
+    const isApproved = localStorage.getItem("buttonApproved_" + studentId);
+
+    if (isApproved === "true") {
+        button.textContent = "Approved";
+        button.classList.add("approved");
+        button.disabled = true;
+    }
+
+    button.addEventListener("click", function () {
+        if (!button.classList.contains("approved")) {
             button.textContent = "Approved";
             button.classList.add("approved");
             button.disabled = true;
+
+            // Store the approval state in local storage
+            localStorage.setItem("buttonApproved_" + studentId, "true");
         }
-
-        button.addEventListener("click", function () {
-            if (status === 0) {
-                // You can use AJAX here to update the status in the database
-                // Once the status is updated, disable the button and mark it as approved
-
-                button.textContent = "Approved";
-                button.classList.add("approved");
-                button.disabled = true;
-            }
-        });
     });
+});
+
 </script>
 
 
@@ -185,12 +190,24 @@ else { echo "0 results"; }
 <script src="./index.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.6/js/jquery.dataTables.js"></script>
+
+
+
 <script>
-$(document).ready(function () {
-    $('#myTable').DataTable({
-        "order": [[1, "asc"]] // Example: Sort by the second column in ascending order
+    $(document).ready(function () {
+        $('#myTable').DataTable({
+            "order": [[1, "asc"]], // Default sorting (e.g., sorting by Name column)
+            "columnDefs": [
+                {
+                    "targets": [17], // Replace with the correct column index of the Grade Level column
+                    "render": function (data, type, row) {
+                        // Convert "Grade 11" to 11 and "Grade 12" to 12 for sorting
+                        return data.replace("Grade ", "") * 1;
+                    }
+                }
+            ]
+        });
     });
-});
 </script>
   
 </body>

@@ -27,10 +27,10 @@ if ($result && $result->num_rows === 1) {
     // Check if the provided password matches the stored password
     if ($pwd === $storedPassword) {
         $stmt->close();
-        $conn->close();
 
         // Start or resume the session before any output
         session_start();
+
         $_SESSION['user_id'] = $row['user_id']; // Store user's ID in the session
         
         if ($is_admin == 1) {
@@ -41,7 +41,7 @@ if ($result && $result->num_rows === 1) {
         exit; // Terminate the script after header redirection
     } else {
         // Invalid password
-        echo "Invalid password.";
+        echo "<script>alert('Invalid Password')</script>.";
     }
 } else {
     // Invalid email

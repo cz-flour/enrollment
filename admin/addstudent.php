@@ -1,26 +1,39 @@
 <!DOCTYPE html lang=en>
 <html>
-    
-  <head>
-    <meta charset="UTF-8">
+
+<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="style.css"> 
-    <title>Our Lady of the Roses Montessori Learning Center</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="indexstyle.css"> 
+    <title>Admin</title>
     <link rel="icon" href="logo.png">   
-    <!-- <link  type="text/css" href="./plugins/bootstrap.min.css"> -->
-    <script src="./plugins/popper.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
-          <style>
+    <script src="./plugins/popper.min.js"></script>
+    <script type="text/javascript" src="./assets/js/ajaxWork.js"></script>    
+    <script type="text/javascript" src="./assets/js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+
+<head>
+<?php
+    // session_start();/* 
+    // include_once "connection.php";
+    
+    
+    //include_once "./config/dbconnect.php";
+?> 
+</head>
+<style>
             .container{
-                margin-top: 110px;
                 background-color: white;
-                opacity: 0.8;
                 border-radius: 9px;
-                padding-bottom: 10px;
+                display: flex;
+            }
+            .content{
+                width: 100%;
             }
             .column{
                 display: flex;
@@ -44,46 +57,21 @@
         #collapseContent {
             display: none;
             }
-
             
           </style>
-  <body >
+<body>
+    <div   class="container allContent-section py-4">
+        <div class="row">
+            <div class="col-sm-3">
 
-    <nav class="navbar navbar-expand-lg fixed-top">
-      <div class="container-fluid">
-        <img src="logo.png" alt="Logo"class="navbar-brand" height="70" width="70">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <!-- <div class="nav-title">Our Lady of the Roses Montessori Learning Center</div> -->
-
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item ">
-              <a class="nav-link flex-center" aria-current="page" href="home2.php"><i class="fa fa-fw fa-home"></i>
-                Home
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="aboutus.php">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link cursor-pointer" id="logoutbtn" data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <div class="container" style="padding-bottom: 30px">
-        <form method="POST" action="eform_process.php" >
-            <div class="row ">
-                <div class="row">
-                    <div class="col-sm-12 flex-row flex-wrap d-flex align-items-center justify-content-center py-4 gap-3">
-                        <img src="logo1.png"  style="width: 70px;">
-                        <h3 class="text-center">Our Lady of the Roses Montessori Learning Center</h3></div>
-                    </div>
-                </div>
+                <!-- SIDEBAR -->
+                <?php include "./sidebar.php";  ?>
+                
+            </div>
+                <!-- MAIN CONTENT -->
+                <div id="content" class="container-fluid col-12">
+                    <h3 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Add Student</h3>
+        <form method="POST" action="./eform_process.php" >
                 <div class="row my-3">
                     <div class="col-lg-12"> 
                         <label for="formControlInput" class="form-label">Learner Reference Number</label>
@@ -91,7 +79,7 @@
                     </div>
                 </div>
                 <hr>
-                <h5>Personal Information</h5>
+                <h5 style="color:black;">Personal Information</h5>
                 <div class="row my-3">
                     <div class="col-sm-12 col-lg-3 my-2"> 
                         <label for="lname" class="form-label">Last Name</label>
@@ -296,7 +284,7 @@
                 <br>
                 <hr>
                 <br>
-                <h5>Name and Address of Person to be contacted in case of Emergency</h5>
+                <h5 style="color: black;">Name and Address of Person to be contacted in case of Emergency</h5>
                 <div class="row my-3">
                     <div class="col-sm-12 col-lg-3 my-2"> 
                         <label for="fullname" class="form-label">Full Name</label>
@@ -317,10 +305,10 @@
                 </div>
                 <hr>
                 <br>
-                <h5>Learners Educational Background </h5>
+                <h5 style="color: black;">Learners Educational Background </h5>
                 <br>
                 <div class="row my-3">
-                    <center><h6>Elementary School (where you completed Elementary Level Education)</h6></center>
+                    <center><h6 style="color: black;">Elementary School (where you completed Elementary Level Education)</h6></center>
                     <div class="col-sm-12 col-lg-4 my-2"> 
                         <label for="schname" class="form-label">School Name</label>
                         <input type="text" class="form-control" id="schname" name="schname" placeholder="Enter School Name">
@@ -336,7 +324,7 @@
                 </div>
                 <br>
                 <div class="row my-3">
-                    <center><h6>Junior High School (where you completed JHS / Grade 10)</h6></center>
+                    <center><h6 style="color: black;">Junior High School (where you completed JHS / Grade 10)</h6></center>
                     <div class="col-sm-12 col-lg-4 my-2"> 
                         <label for="schnamej" class="form-label">School Name</label>
                         <input type="text" class="form-control" id="schnamej" name="schnamej" placeholder="Enter School Name">
@@ -354,26 +342,6 @@
                 <button type="submit "class="btn btn-success" id="next"> Submit </button>
             </div>
         </form>
-    </div>
-    
-    
-    <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="logoutModalLabel"></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body" id="logout">
-                    Are you sure you want to log out?<br>
-                    All data will be erased.
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <a href="logout.php" class="btn btn-primary">Log out</a>
-                </div>
-            </div>
-        </div>
     </div>
     
    
@@ -530,5 +498,14 @@
     <script src="./plugins/bootstrap.bundle.min.js"></script>
     <script src="./plugins/bootstrap.min.js"></script>
 
-  </body> 
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="./index.js"></script>
+</body>
 </html>

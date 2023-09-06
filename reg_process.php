@@ -9,10 +9,7 @@ if(isset($_POST['email'])) {
 
     //transfers value of name="" from form to variable
     //$r_username = $_POST['reg_username'];
-    $lname = $_POST['lname'];
-    $fname = $_POST['fname'];
-    $mname = $_POST['mname'];
-    $contact = $_POST['contact'];
+
     $email = $_POST['email'];
     $pwd = $_POST['pwd'];
     
@@ -21,7 +18,7 @@ if(isset($_POST['email'])) {
         die("Connection failed: " . $conn->connect_error);
     }
     
-    $sql = "SELECT * FROM student_info WHERE email = '$email'";
+    $sql = "SELECT * FROM user WHERE email = '$email'";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
@@ -29,15 +26,14 @@ if(isset($_POST['email'])) {
         $msg="User already exists.";
     } else {
         // insert the new user record into the users table
-        $sql = "INSERT INTO student_info (lname, fname, mname, contact, email, pwd) VALUES ('$lname', '$fname' ,'$mname', '$contact', '$email', '$pwd')";
+        $sql = "INSERT INTO user (email, pwd) VALUES ('$email', '$pwd')";
         if (mysqli_query($conn, $sql)) {
-            $msg="New user record inserted successfully.";
+            $msg="New user record inserted successfully. Please log in your account";
         } else {
             $msg="Error: " . $sql . "<br>" . mysqli_error($conn);
         }
     }
     header("location:home.php?register&msg=$msg");
-    exit;
 }
 
 

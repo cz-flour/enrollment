@@ -1,19 +1,15 @@
 <?php
-
-$host = 'localhost';
-$username = 'root';
-$password = '';
-$dbname = 'enrollment';
-
-
+$localhost = "localhost";
+$dbusername = "root";
+$dbpassword = "";
+$dbname = "enrollment";
 
 //connect database
-$conn = mysqli_connect($host, $username, $password, $dbname);
-
-
-//check if the connection was successful
+$conn = mysqli_connect('localhost','root','','enrollment');
 if (!$conn) {
-    die("Connection Failed" . mysqli_connect_error());
+	die ("Connection Failed" .mysqli_connect_error());
+} else {
+	echo "CONNECTION: Connected!";
 }
 
 //

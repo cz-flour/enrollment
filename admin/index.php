@@ -19,46 +19,113 @@
 
 <head>
 <?php
-            session_start();
-            include_once "connection.php";
-            include "./sidebar.php";
-           
-            //include_once "./config/dbconnect.php";
-        ?>
- 
-
+    session_start();
+    include_once "connection.php";
+    
+    
+    //include_once "./config/dbconnect.php";
+?> 
 </head>
-
+ 
+<style>
+  .card{
+    margin-left: 100px;
+    margin-top: 80px;
+    border-color: black;
+    border: 1px solid #333;
+    width: 300px;
+    padding: 10px 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: aliceblue;
+  }
+</style>
 
 <body>
-<div id="main-content" class="container allContent-section py-4">
+    <div   class="container allContent-section py-4">
         <div class="row">
             <div class="col-sm-3">
-                <div class="card" style="margin: left 20px;">
-                    <i class="fa fa-users  mb-2" style="font-size: 70px;"></i>
-                    <h4 style="color:white;">Total Users</h4>
-                    <h5 style="color:white;">
-                    <?php
-                        $sql="SELECT * from user where is_admin=0";
-                        $result=$conn-> query($sql);
-                        $count=0;
-                        if ($result-> num_rows > 0){
-                            while ($row=$result-> fetch_assoc()) {
-                    
-                                $count=$count+1;
-                            }
-                        }
-                        echo $count;
-                    ?></h5>
+
+                <!-- SIDEBAR -->
+                <?php include "./sidebar.php";  ?>
+                
+
+                <!-- MAIN CONTENT -->
+                <div id="content" class="container">
+                <div style="display: flex;flex-wrap: wrap;justify-content: space-evenly">
+                    <div class="col-md-4">
+                        <div class="card " style="text-align:center;" >
+                            <i class="fa fa-users  mb-2" style="font-size: 70px;"></i>
+                            <h4 style="color:black;">Total Users:</h4>
+                            <h3>
+                                <?php
+                                     $sql = "SELECT COUNT(*) as user_count FROM user";
+                                     $result = $conn->query($sql);
+
+                                     if ($result->num_rows > 0) {
+                                         $row = $result->fetch_assoc();
+                                        echo  $row["user_count"];
+                                     } else {
+                                         echo "No users found.";
+                                     } 
+                                ?>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card" id="card1" style="text-align:center;">
+                            <i class="fa fa-users  mb-2" style="font-size: 70px;"></i>
+                            <h4 style="color:black;">Total Grade 11 Students</h4>
+                            <h3>
+                                <?php
+                                $sql = "SELECT COUNT(*) as grade_11_count FROM student_info WHERE grlevel = 'Grade 11'";
+                                        $result = $conn->query($sql);
+    
+                                        if ($result->num_rows > 0) {
+                                            $row = $result->fetch_assoc();
+                                           echo $row["grade_11_count"];
+                                        } else {
+                                            echo "No Grade 11 students found.";
+                                       }
+                                        ?>
+                            </h3>
+                        </div>
+                    </div>
+    
+                    <div class="col-md-4">
+                        <div class="card" id="card1" style="text-align:center;">
+                            <i class="fa fa-users  mb-2" style="font-size: 70px;"></i>
+                            <h4 style="color:black;">Total Grade 12 Students</h4>
+                            <h3>
+                                <?php
+                                 $sql = "SELECT COUNT(*) as grade_11_count FROM student_info WHERE grlevel = 'Grade 12'";
+                                       $result = $conn->query($sql);
+    
+                                     if ($result->num_rows > 0) {
+                                          $row = $result->fetch_assoc();
+                                            echo $row["grade_11_count"];
+                                       } else {
+                                           echo "No Grade 12 students found.";
+                                       }
+    
+                                        $conn->close();
+                            ?>
+                            </h3>
+                        </div>
+                    </div> 
+                </div> 
+
+                  </div>
                 </div>
+
+
             </div>
-</body>
-
-
+        </div>
+    </div>
 </div>
 
 
-
-
-
+<script src="./index.js"></script>
+</body>
 </html>

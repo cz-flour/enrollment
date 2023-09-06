@@ -56,6 +56,8 @@ if (isset($_SESSION['user_id'])) {
         $msg = "Student information added successfully!";
     } else {
         $msg = "Error: " . $stmt->error;
+        
+
     }
 
     //$stmt->close();

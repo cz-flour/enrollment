@@ -13,6 +13,7 @@ body {
       background-image: linear-gradient(to bottom,rgba(252, 54, 193, 0.329), rgba(52, 125, 209, 0.842)), url("bg.jpg");
       background-size: cover;
       background-repeat: no-repeat;
+      overflow:scroll;
 }
 
 .content{

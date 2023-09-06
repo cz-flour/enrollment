@@ -1,3 +1,15 @@
+<?php
+
+//Interface for the checkout
+include_once 'connection.php';
+
+?>
+
+
+
+
+
+
 <!DOCTYPE html lang=en>
 <html>
     
@@ -68,15 +80,15 @@
               <a class="nav-link" href="aboutus.php">About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link cursor-pointer" id="logoutbtn" data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
-            </li>
+              <a class="nav-link cursor-pointer" id="loginbtn" data-bs-toggle="modal" data-bs-target="#loginModal"><i class="material-icons">&#xe879;</i></a>
+            </li> 
           </ul>
         </div>
       </div>
     </nav>
 
     <div class="container" style="padding-bottom: 30px">
-        <form method="POST" action="eform_process.php" >
+        <form method="POST" action="./eform_process.php" >
             <div class="row ">
                 <div class="row">
                     <div class="col-sm-12 flex-row flex-wrap d-flex align-items-center justify-content-center py-4 gap-3">
@@ -84,10 +96,69 @@
                         <h3 class="text-center">Our Lady of the Roses Montessori Learning Center</h3></div>
                     </div>
                 </div>
+
+<?php
+//$user_id = $_SESSION['user_id'];
+
+
+if (isset($_SESSION['user_id'])) {
+//retrieve  user information from the database
+$user_id = $_SESSION['user_id'];
+$query = "SELECT * FROM student_info WHERE user_id = '$user_id'";
+$result = mysqli_query($conn, $query);
+if (mysqli_num_rows($result) > 0) {
+    //If the user found, fill the form fields with user data
+    $row = mysqli_fetch_assoc($result);
+    $lrn = $row['lrn'];
+    $lname = $row['lname'];
+    $fname = $row['fname'];
+    $mname = $row['mname'];
+    $extension = $row['extension'];
+    $birthdate = $row['birthdate'];
+    $age = $row['age'];
+    $height = $row['height'];
+    $weight = $row['weight'];
+    $cstatus = $row['cstatus'];
+    $nationality = $row['nationality'];
+    $place_birth = $row['place_birth'];
+    $sex = $row['sex'];
+    $religion = $row['religion'];
+    $contact = $row['contact'];
+    $province = $row['province'];
+    $municipality = $row['municipality'];
+    $brgy = $row['brgy'];
+    $purok = $row['purok'];
+    $grlevel = $row['grlevel'];
+    $track = $row['track'];
+    $strand = $row['strand'];
+    $psa = $row['psa'];
+    $formcard = $row['formcard'];
+    $pics = $row['pics'];
+    $complform = $row['complform'];
+    $fullname = $row['fullname'];
+    $caddress = $row['caddress'];
+    $rel = $row['rel'];
+    $cpnum = $row['cpnum'];
+    $schname = $row['schname'];
+    $schaddress = $row['schaddress'];
+    $yrcomp = $row['yrcomp'];
+    $schnamej = $row['schnamej'];
+    $schaddressj = $row['schaddressj'];
+    $yrcompj = $row['yrcompj'];
+
+
+    
+
+} else {
+    //User not found
+    echo "User not found.";
+}
+}
+?>
                 <div class="row my-3">
                     <div class="col-lg-12"> 
                         <label for="formControlInput" class="form-label">Learner Reference Number</label>
-                        <input type="number" class="form-control" name="lrn" id="lrn" placeholder="Enter LRN" style="max-width: 500px;">
+                        <?php echo $lrn; ?>
                     </div>
                 </div>
                 <hr>
@@ -95,7 +166,7 @@
                 <div class="row my-3">
                     <div class="col-sm-12 col-lg-3 my-2"> 
                         <label for="lname" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" id="lname" name="lname" placeholder="Enter Last Name">
+                        <?php echo $_GET["lname"]; ?>
                     </div>
                     <div class="col-sm-12 col-lg-3 my-2">
                         <label for="fname" class="form-label">First Name</label>
@@ -351,30 +422,11 @@
                     </div>
                 </div>
 
-                <button type="submit "class="btn btn-success" id="next"> Submit </button>
+                <button type="submit "class="btn" id="next"> Next </button>
             </div>
         </form>
     </div>
-    
-    
-    <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="logoutModalLabel"></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body" id="logout">
-                    Are you sure you want to log out?<br>
-                    All data will be erased.
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <a href="logout.php" class="btn btn-primary">Log out</a>
-                </div>
-            </div>
-        </div>
-    </div>
+
     
    
     <script> 
